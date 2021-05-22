@@ -168,8 +168,8 @@ class RightContainer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            imgOne : '/img/placeholder.jpg',
-            imgTwo : '/img/placeholder_2.jpg'
+            imgOne : '/img/picture_1.jpg',
+            imgTwo : '/img/picture_2.jpg'
         }
     }
     
