@@ -46,7 +46,8 @@ class Work extends React.Component {
                         <a
                             key = {k+'_a'}
                             href={e}
-                            rel="noopener noreferrer">
+                            rel="noopener noreferrer"
+                            onClick={()=> this.props.workHandleClick(k)}>
                             {k}
                         </a>
                         <span key = {k+'_span'}>{k === current ? '🧘🏼' : ''}</span>
@@ -156,7 +157,9 @@ class LeftContainer extends React.Component {
                 <QuickDesc value={this.state.desc}/>
                 <Link/>
                 <Article />
-                <Work dataLink={this.props.dataLink}/>
+                <Work 
+                    dataLink={this.props.dataLink}
+                    workHandleClick={this.props.workHandleClick}/>
             </div>
         )
     }
@@ -199,18 +202,33 @@ class Container extends React.Component {
                 Resume: '#',
                 Auto1: '#',
                 Quantyca: '#',
-            }
+            },
+            rightContent: {}
         }
+        this.workHandleClick = this.workHandleClick.bind(this);
     }
 
     render(){
         return (
             <div className="container">
                 <LeftContainer 
-                    dataLink={this.state.workLink}/>
+                    dataLink={this.state.workLink}
+                    workHandleClick={this.workHandleClick}/>
                 <RightContainer/>
             </div>
         );
+    }
+
+    workHandleClick(i){
+        this.setState({
+            rightContent: {
+                title: i
+            }
+        });
+    }
+
+    componentDidUpdate(){
+        console.log(this.state);
     }
 }
 
