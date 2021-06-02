@@ -1,26 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Resume from './Resume.js';
+
+//componenets
+import Heading from './components/heading.js';
+import QuickDesc from './components/quick-desc.js';
 import './index.css';
 
 function Sep() {
     return (
         <div className="sep"></div>
-    )
-}
-
-function Heading (props) {
-    return (
-        <div className="title">
-            <h1>{props.value}</h1>
-        </div>
-    )
-}
-
-function QuickDesc (props) {
-    return (
-        <div className="desc">
-            {props.value}
-        </div>
     )
 }
 
@@ -169,21 +158,32 @@ class RightContainer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            imgOne : '/img/picture_1.jpg',
-            imgTwo : '/img/picture_2.jpg'
+            img: {
+                imgOne : '/img/picture_1.jpg',
+                imgTwo : '/img/picture_2.jpg'
+            },
+            exp: {
+                Resume: <Resume/>
+            }
         }
     }
     
     render(){
-        const imgs = this.state;
-        const e = [];
-        for (const k in imgs) {
-            if (Object.hasOwnProperty.call(imgs, k)) {
-                const img = imgs[k];
-                e.push(
-                    <img src={img} alt="img"/>
-                )              
+        let e;
+
+        if(this.props.home){
+            e = [];
+            const imgs = this.state.img;
+            for (const k in imgs) {
+                if (Object.hasOwnProperty.call(imgs, k)) {
+                    const img = imgs[k];
+                    e.push(
+                        <img src={img} alt="img"/>
+                    )              
+                }
             }
+        }else {
+            e = this.state.exp[this.props.rightContent];
         }
 
         return (
@@ -203,6 +203,7 @@ class Container extends React.Component {
                 Auto1: '#',
                 Quantyca: '#',
             },
+            home: true,
             rightContent: {}
         }
         this.workHandleClick = this.workHandleClick.bind(this);
@@ -214,16 +215,17 @@ class Container extends React.Component {
                 <LeftContainer 
                     dataLink={this.state.workLink}
                     workHandleClick={this.workHandleClick}/>
-                <RightContainer/>
+                <RightContainer
+                    home = {this.state.home}
+                    rightContent = {this.state.rightContent}/>
             </div>
         );
     }
 
     workHandleClick(i){
         this.setState({
-            rightContent: {
-                title: i
-            }
+            rightContent: i,
+            home: false
         });
     }
 
