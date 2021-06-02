@@ -5,13 +5,10 @@ import Resume from './Resume.js';
 //componenets
 import Heading from './components/heading.js';
 import QuickDesc from './components/quick-desc.js';
+import Sep from './components/separator.js';
 import './index.css';
 
-function Sep() {
-    return (
-        <div className="sep"></div>
-    )
-}
+
 
 class Work extends React.Component {
     constructor(props){
