@@ -27,16 +27,11 @@ function QuickDesc (props) {
 class Work extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            Resume: '#',
-            Auto1: '#',
-            Quantyca: '#',
-        };
         this.title = 'work';
     }
 
     render() {
-        const jobs = this.state;
+        const jobs = this.props.dataLink;
         const a = [];
         for (const k in jobs) {
             if (Object.hasOwnProperty.call(jobs, k)) {
@@ -44,7 +39,10 @@ class Work extends React.Component {
                 const jl = Object.keys(jobs).length;
                 const current = Object.keys(jobs)[Object.keys(jobs).length-(jl-1)];
                 a.push(
-                    <div key={k} title={k === current ? 'current occupation' : ''}>
+                    <div 
+                        className="occupation" 
+                        key={k} 
+                        title={k === current ? 'current occupation' : ''}>
                         <a
                             key = {k+'_a'}
                             href={e}
@@ -146,7 +144,7 @@ class LeftContainer extends React.Component {
         super(props);
         this.state = {
             title: 'Matteo Borghi',
-            desc: 'Perseverance is my talent and long life learning are my main life driver. Currently based in Lissone (MB). Tech, Self Improvment, Fantasy Book are among my interest'
+            desc: 'Perseverance is my talent and long life learning is main life driver. Currently based in Lissone (MB). Tech, Self Improvment, Fantasy Book are among my interest',
         }
     }
 
@@ -156,9 +154,9 @@ class LeftContainer extends React.Component {
                 <Heading value={this.state.title}/>
                 <Sep />
                 <QuickDesc value={this.state.desc}/>
-                <Link />
+                <Link/>
                 <Article />
-                <Work />
+                <Work dataLink={this.props.dataLink}/>
             </div>
         )
     }
@@ -194,11 +192,23 @@ class RightContainer extends React.Component{
 }
 
 class Container extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            workLink: {
+                Resume: '#',
+                Auto1: '#',
+                Quantyca: '#',
+            }
+        }
+    }
+
     render(){
         return (
             <div className="container">
-                <LeftContainer />
-                <RightContainer />
+                <LeftContainer 
+                    dataLink={this.state.workLink}/>
+                <RightContainer/>
             </div>
         );
     }
