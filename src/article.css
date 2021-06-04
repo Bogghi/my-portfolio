@@ -6,6 +6,11 @@
     color: gray;  
 }
 
-.experiences {
-    
+.sub-title h3 {
+    font-weight: 550;
+}
+
+.sub-title h6 {
+    line-height: 35px;
+    font-weight: 500;
 }

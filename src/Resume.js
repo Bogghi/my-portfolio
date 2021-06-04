@@ -1,6 +1,7 @@
 import React from 'react';
 import Heading from './components/heading.js';
 import TimeSpan from './components/time-span';
+import SubTitle from './components/sub-title';
 import './article.css';
 
 class Resume extends React.Component{
@@ -44,11 +45,26 @@ class Resume extends React.Component{
     }
 
     render(){
+        const exp = this.experience;
+        let r = [];
+
+        for (const key in exp) {
+            if (Object.hasOwnProperty.call(exp, key)) {
+                const e = exp[key];
+                r.push(
+                    <SubTitle 
+                        company={e.company}
+                        role={e.role}/>
+                    
+                );
+            }
+        }
+
         return (
             <div className="text-padding">
                 <Heading value={this.title}/>
                 <div className="experiences">
-                    {/*  circle throw the experience and print the conten */}
+                    {r}
                 </div>
             </div>
         )
