@@ -42,6 +42,10 @@
     
 }
 
+.title:hover {
+    cursor: pointer;
+}
+
 .sep {
     background-color: #bcbcbc;
     height: 3px;

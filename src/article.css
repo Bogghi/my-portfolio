@@ -14,3 +14,30 @@
     line-height: 35px;
     font-weight: 500;
 }
+
+.paragraph {
+    margin: 10px 0px 10px 0px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #5e5e5e;
+}
+
+.sub-heading {
+    padding-bottom: 20px;
+}
+
+.d-head {
+    margin-bottom: 10px;
+}
+
+.d-head:hover {
+    cursor: pointer;
+}
+
+.d-body {
+    margin: 0px 0px 10px 18px;
+}
+
+.d-ele {
+    line-height: 25px;
+}

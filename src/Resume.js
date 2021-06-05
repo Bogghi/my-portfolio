@@ -1,13 +1,21 @@
 import React from 'react';
-import Heading from './components/heading.js';
+
+//import componentes
+import Heading from './components/heading';
 import TimeSpan from './components/time-span';
 import SubTitle from './components/sub-title';
+import Paragraph from './components/paragraph';
+import SubHeading from './components/sub-heading';
+import DropdownList from './components/dropdown-list';
 import './article.css';
 
 class Resume extends React.Component{
     constructor(props){
         super(props);
         this.title = 'Resume';
+        this.subHeading = {
+            0: 'Experiences'
+        }
         this.experience = {
             0: {
                 company: 'Auto1 Group', 
@@ -55,14 +63,24 @@ class Resume extends React.Component{
                     <SubTitle 
                         company={e.company}
                         role={e.role}/>
-                    
                 );
+                r.push(
+                    <Paragraph 
+                        value={e.duty}
+                        int={true}
+                        pre='Duty: '/>);
+                r.push(
+                    <DropdownList 
+                        title='Tools'
+                        list={e.tools}/>
+                )
             }
         }
 
         return (
             <div className="text-padding">
                 <Heading value={this.title}/>
+                <SubHeading value={this.subHeading[0]}/>
                 <div className="experiences">
                     {r}
                 </div>
