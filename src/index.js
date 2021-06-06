@@ -225,10 +225,6 @@ class Container extends React.Component {
             home: false
         });
     }
-
-    componentDidUpdate(){
-        console.log(this.state);
-    }
 }
 
 class Main extends React.Component {

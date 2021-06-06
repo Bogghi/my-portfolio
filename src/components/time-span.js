@@ -3,7 +3,7 @@ import React from 'react';
 function TimeSpan(props){
     return(
         <div className="time-span">
-            <p>{props.value}</p>
+            <p>{props.start} - {props.end}</p>
         </div>
     )
 }

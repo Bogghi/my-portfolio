@@ -20,8 +20,6 @@ class DropdownList extends React.Component{
             }
         }
 
-        console.log(this.props);
-
         return (
             <div className='d-list'>
                 <div 

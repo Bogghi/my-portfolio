@@ -7,6 +7,7 @@ import SubTitle from './components/sub-title';
 import Paragraph from './components/paragraph';
 import SubHeading from './components/sub-heading';
 import DropdownList from './components/dropdown-list';
+import Separator from './components/separator';
 import './article.css';
 
 class Resume extends React.Component{
@@ -14,7 +15,8 @@ class Resume extends React.Component{
         super(props);
         this.title = 'Resume';
         this.subHeading = {
-            0: 'Experiences'
+            0: 'Experiences',
+            1: 'Education'
         }
         this.experience = {
             0: {
@@ -50,11 +52,39 @@ class Resume extends React.Component{
                 end: 'JUN 2019'
             }
         }
+        this.education = {
+            0: {
+                school: 'Boolean Careers Master',
+                title: 'Certificate in Web Development',
+                start: 'JUN 2020',
+                end: 'DEC 2020'
+            },
+            1: {
+                school: 'Unicomunicazione/NLP ITALY Coaching School',
+                title: `1st Level Master's degree`,
+                start: 'JAN 2020',
+                end: 'MAR 2020'
+            },
+            2: {
+                school: 'Unimi',
+                title: `Short degreein in computer science - Not Completed`,
+                start: 'SET 2017',
+                end: 'JUN 2019'
+            },
+            3: {
+                school: 'ITI - Pino Hensemberger',
+                title: `Computer expert`,
+                start: 'SET 2012',
+                end: 'SET 2017'
+            }
+        }
     }
 
     render(){
         const exp = this.experience;
-        let r = [];
+        const edu = this.education;
+        let r = [],
+            e = [];
 
         for (const key in exp) {
             if (Object.hasOwnProperty.call(exp, key)) {
@@ -65,6 +95,10 @@ class Resume extends React.Component{
                         role={e.role}/>
                 );
                 r.push(
+                    <TimeSpan 
+                        start={e.start}
+                        end={e.end}/>)
+                r.push(
                     <Paragraph 
                         value={e.duty}
                         int={true}
@@ -73,17 +107,38 @@ class Resume extends React.Component{
                     <DropdownList 
                         title='Tools'
                         list={e.tools}/>
-                )
+                );
+            }
+        }
+
+        for (const key in edu) {
+            if(Object.hasOwnProperty.call(edu, key)){
+                const v = edu[key];
+                e.push(
+                    <SubTitle
+                        company={v.school}
+                        role={v.title}/>
+                );
+                e.push(
+                    <TimeSpan 
+                        start={v.start}
+                        end={v.end}/>
+                );
             }
         }
 
         return (
             <div className="text-padding">
                 <Heading value={this.title}/>
-                <SubHeading value={this.subHeading[0]}/>
                 <div className="experiences">
+                    <SubHeading value={this.subHeading[0]}/>
                     {r}
                 </div>
+                <Separator/>
+                <div className='education'>
+                    <SubHeading value={this.subHeading[1]}/>
+                    {e}
+                </div> 
             </div>
         )
     }

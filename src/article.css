@@ -4,6 +4,8 @@
 
 .time-span {
     color: gray;  
+    text-decoration: underline;
+    margin-bottom: 10px;
 }
 
 .sub-title h3 {
@@ -32,6 +34,7 @@
 
 .d-head:hover {
     cursor: pointer;
+    background-color: #ccc7bb;
 }
 
 .d-body {
@@ -40,4 +43,12 @@
 
 .d-ele {
     line-height: 25px;
+}
+
+.experiences {
+    margin-bottom: 10px;
+}
+
+.education {
+    margin-top: 10px;
 }
