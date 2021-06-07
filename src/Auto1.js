@@ -13,7 +13,9 @@ import './article.css';
 class Auto1 extends React.Component{
     constructor(props){
         super(props)
-        this.title = 'Auto1'
+        this.title = 'Auto1';
+        this.start = 'SET 2017';
+        this.end = 'JUN 2019';
     }
 
     render(){
