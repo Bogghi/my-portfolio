@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Resume from './Resume.js';
+import Resume from './Resume';
+import Quantyca from './Quantyca';
+import Auto1 from './Auto1';
 
 //componenets
 import Heading from './components/heading.js';
@@ -160,7 +162,9 @@ class RightContainer extends React.Component{
                 imgTwo : '/img/picture_2.jpg'
             },
             exp: {
-                Resume: <Resume/>
+                Resume: <Resume/>,
+                Quantyca: <Quantyca/>,
+                Auto1: <Auto1/>
             }
         }
     }
