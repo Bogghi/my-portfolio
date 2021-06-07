@@ -15,8 +15,9 @@ class Resume extends React.Component{
         super(props);
         this.title = 'Resume';
         this.subHeading = {
-            0: 'Experiences',
-            1: 'Education'
+            0: 'Skills',
+            1: 'Experiences',
+            2: 'Education'
         }
         this.experience = {
             0: {
@@ -78,13 +79,24 @@ class Resume extends React.Component{
                 end: 'SET 2017'
             }
         }
+        this.skill = {
+            0: 'PHP - Laravel',
+            1: 'HTML CSS',
+            2: 'JavaScript - ( JQuery, React )',
+            3: 'SQL - (DBMS: MySql, Vertica, Oracle)',
+            4: 'Bootstrap',
+            5: 'Linux',
+            6: 'Java'
+        }
     }
 
     render(){
         const exp = this.experience;
         const edu = this.education;
+        const skl = this.skill;
         let r = [],
-            e = [];
+            e = [],
+            s = [];
 
         for (const key in exp) {
             if (Object.hasOwnProperty.call(exp, key)) {
@@ -127,16 +139,34 @@ class Resume extends React.Component{
             }
         }
 
+        for(const key in skl){
+            if(Object.hasOwnProperty.call(skl, key)){
+                const sv = skl[key];
+                s.push(
+                    <li>
+                        <h4>{sv}</h4>
+                    </li>
+                )
+            }
+        }
+
         return (
             <div className="text-padding">
                 <Heading value={this.title}/>
-                <div className="experiences">
+                <div className="skils">
                     <SubHeading value={this.subHeading[0]}/>
+                    <ul className="s-list">
+                        {s}
+                    </ul>
+                </div>
+                <Separator/>
+                <div className="experiences">
+                    <SubHeading value={this.subHeading[1]}/>
                     {r}
                 </div>
                 <Separator/>
                 <div className='education'>
-                    <SubHeading value={this.subHeading[1]}/>
+                    <SubHeading value={this.subHeading[2]}/>
                     {e}
                 </div> 
             </div>
