@@ -45,7 +45,7 @@ class Quantyca extends React.Component{
                 <Paragraph
                     pre=''
                     value={this.text[2]}/>
-                <SubHeading value={this.subHeading[1]}/>            
+                <SubHeading value={this.subHeading[1]}/>
                 <Paragraph
                     pre=''
                     value={this.text[3]}/>
