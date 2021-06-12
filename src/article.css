@@ -64,3 +64,12 @@
 .s-list li {
     line-height: 25px ;
 }
+
+.quote {
+    padding-left: 15px;
+    border-left: 2px solid #424242;
+    line-height: 25px;
+    font-weight: 400;
+    font-style: italic;
+    color: #5e5e5e;
+}
