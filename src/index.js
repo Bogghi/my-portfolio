@@ -8,7 +8,7 @@ import Auto1 from './Auto1';
 import Heading from './components/heading.js';
 import QuickDesc from './components/quick-desc.js';
 import Sep from './components/separator.js';
-import './index.css';
+import './css/index.css';
 
 
 
@@ -179,7 +179,10 @@ class RightContainer extends React.Component{
                 if (Object.hasOwnProperty.call(imgs, k)) {
                     const img = imgs[k];
                     e.push(
-                        <img src={img} alt="img"/>
+                        <img
+                            key={k+"_img"} 
+                            src={img} 
+                            alt="img"/>
                     )              
                 }
             }

@@ -8,7 +8,7 @@ import Paragraph from './components/paragraph';
 import SubHeading from './components/sub-heading';
 import DropdownList from './components/dropdown-list';
 import Separator from './components/separator';
-import './article.css';
+import './css/article.css';
 
 class Resume extends React.Component{
     constructor(props){

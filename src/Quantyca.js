@@ -5,7 +5,7 @@ import Heading from './components/heading';
 import TimeSpan from './components/time-span';
 import Paragraph from './components/paragraph';
 import SubHeading from './components/sub-heading';
-import './article.css';
+import './css/article.css';
 
 class Quantyca extends React.Component{
     constructor(props){

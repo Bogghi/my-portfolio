@@ -8,7 +8,7 @@ import SubHeading from './components/sub-heading';
 import Quote from './components/quote';
 import Spacer from './components/spacer';
 import DropdownList from './components/dropdown-list';
-import './article.css';
+import './css/article.css';
 
 class Auto1 extends React.Component{
     constructor(props){
