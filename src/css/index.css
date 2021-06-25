@@ -37,7 +37,7 @@
     font-size: 20px;
     padding-top: 60px;
     padding-bottom: 40px;
-    
+
 }
 
 .title:hover {
@@ -73,7 +73,7 @@ h1 {
 }
 
 a {
-    text-decoration: none;   
+    text-decoration: none;
     color: black;
     padding-bottom: 5px;
     border-bottom: 1px solid black;
@@ -117,4 +117,10 @@ img {
 
 .occupation {
     display: flex;
+}
+
+@media screen and (max-width: 1024px){
+    .container{
+        width: 60%;
+    }
 }

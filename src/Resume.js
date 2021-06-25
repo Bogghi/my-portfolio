@@ -102,21 +102,25 @@ class Resume extends React.Component{
             if (Object.hasOwnProperty.call(exp, key)) {
                 const e = exp[key];
                 r.push(
-                    <SubTitle 
+                    <SubTitle
+                        key = {key+'-sub-t'}
                         company={e.company}
                         role={e.role}/>
                 );
                 r.push(
-                    <TimeSpan 
+                    <TimeSpan
+                        key = {key+'-tspan'}
                         start={e.start}
                         end={e.end}/>)
                 r.push(
-                    <Paragraph 
+                    <Paragraph
+                        key = {key-'par'}
                         value={e.duty}
                         int={true}
                         pre='Duty: '/>);
                 r.push(
-                    <DropdownList 
+                    <DropdownList
+                        key = {key+'-dd'}
                         title='Tools'
                         list={e.tools}/>
                 );
@@ -128,11 +132,13 @@ class Resume extends React.Component{
                 const v = edu[key];
                 e.push(
                     <SubTitle
+                        key = {key+'-sub-t'}
                         company={v.school}
                         role={v.title}/>
                 );
                 e.push(
-                    <TimeSpan 
+                    <TimeSpan
+                        key = {key+'-tspan'}
                         start={v.start}
                         end={v.end}/>
                 );
@@ -143,7 +149,8 @@ class Resume extends React.Component{
             if(Object.hasOwnProperty.call(skl, key)){
                 const sv = skl[key];
                 s.push(
-                    <li>
+                    <li
+                        key={key+'-li'}>
                         <h4>{sv}</h4>
                     </li>
                 )
