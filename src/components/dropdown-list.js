@@ -11,12 +11,14 @@ class DropdownList extends React.Component{
 
     render(){
         const list = this.state.list;
-        let r = [];
+        let r = [],
+            i = 0;
 
         for (const key in list) {
             if (Object.hasOwnProperty.call(list, key)) {
                 const e = list[key];
-                r.push(<DrElement value={e}/>)
+                r.push(<DrElement key={i} value={e}/>);
+                i++;
             }
         }
 
@@ -25,7 +27,6 @@ class DropdownList extends React.Component{
                 <div 
                     className='d-head' 
                     onClick={() => this.showList(this.props.list, this.state.upOrDown)}>
-                    {/* ▼ ▲ */}
                     {!this.state.upOrDown ? '▲' : '▼'} {this.props.title}
                 </div>
                 <div className='d-body'>
