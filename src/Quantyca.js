@@ -11,8 +11,6 @@ class Quantyca extends React.Component{
     constructor(props){
         super(props)
         this.title = 'Quantyca';
-        this.start = 'SET 2017';
-        this.end = 'JUN 2019';
         this.text = {
             0: `I've joined Quantyca in the September of 2017 right after I graduated from high school ( ITI Hensemberger ) and started a part-time experience as a Data Integration Specialist.`,
             1: `My job in this role was to help the team build a strong and scalable ETL infrastructure for DWH supply using  Talend. I've also worked on creating and deploying SOAP web service with the scope of groceries home delivery.`,
@@ -31,29 +29,40 @@ class Quantyca extends React.Component{
     render(){
         return(
             <div className='text-padding top-padding'>
-                <Heading value={this.title}/>
+                <Heading value={this.title} kye='kqfKmrzbh'/>
                 <TimeSpan
-                    start={this.start}
-                    end={this.end}/>
-                <SubHeading value={this.subHeading[0]}/>
+                    key='pfaSednzT'
+                    start='SET 2017'
+                    end='AUG 2019'/>
+                <SubHeading value={this.subHeading[0]} key='9Ol1DBptJ'/>
                 <Paragraph
+                    key='PTkiseaLA'
                     pre=''
                     value={this.text[0]}/>
                 <Paragraph
+                    key='LHbNY1Zlb'
                     pre=''
                     value={this.text[1]}/>
                 <Paragraph
+                    key='fHcO2xtpf'
                     pre=''
                     value={this.text[2]}/>
+                <TimeSpan
+                    key='0DVnw2VQ6'
+                    start='SET 2019'
+                    end='JUN 2020'/>
                 <SubHeading value={this.subHeading[1]}/>
                 <Paragraph
+                    key='31-NoNf5e'
                     pre=''
                     value={this.text[3]}/>
                 <SubHeading value={this.subTitle}/>
                 <Paragraph
+                    key='qo4jrv131'
                     pre=''
                     value={this.text[4]}/>
                 <Paragraph
+                    key='JGmnzkYhF'
                     pre=''
                     value={this.text[5]}/>
             </div>

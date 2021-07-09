@@ -96,34 +96,38 @@ class Resume extends React.Component{
         const skl = this.skill;
         let r = [],
             e = [],
-            s = [];
+            s = [],
+            i = 0;
 
         for (const key in exp) {
             if (Object.hasOwnProperty.call(exp, key)) {
                 const e = exp[key];
                 r.push(
                     <SubTitle
-                        key = {key+'-sub-t'}
+                        key = {i}
                         company={e.company}
                         role={e.role}/>
                 );
+                i++;
                 r.push(
                     <TimeSpan
-                        key = {key+'-tspan'}
+                        key = {i}
                         start={e.start}
                         end={e.end}/>)
+                i++;
                 r.push(
                     <Paragraph
-                        key = {key-'par'}
+                        key = {i}
                         value={e.duty}
                         int={true}
                         pre='Duty: '/>);
+                i++;
                 r.push(
                     <DropdownList
-                        key = {key+'-dd'}
+                        key = {i}
                         title='Tools'
-                        list={e.tools}/>
-                );
+                        list={e.tools}/>);
+                i++;
             }
         }
 
@@ -132,16 +136,18 @@ class Resume extends React.Component{
                 const v = edu[key];
                 e.push(
                     <SubTitle
-                        key = {key+'-sub-t'}
+                        key = {i}
                         company={v.school}
                         role={v.title}/>
                 );
+                i++;
                 e.push(
                     <TimeSpan
-                        key = {key+'-tspan'}
+                        key = {i}
                         start={v.start}
                         end={v.end}/>
                 );
+                i++;
             }
         }
 
@@ -150,10 +156,11 @@ class Resume extends React.Component{
                 const sv = skl[key];
                 s.push(
                     <li
-                        key={key+'-li'}>
+                        key={i}>
                         <h4>{sv}</h4>
                     </li>
-                )
+                );
+                i++;
             }
         }
 
