@@ -160,7 +160,7 @@ img {
         border: 1px solid black;
     }
 
-    .home-dropdown i:active{
+    .home-dropdown-active{
         background-color: #ccc5b3;
     }
 }
