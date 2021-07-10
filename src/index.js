@@ -8,6 +8,7 @@ import Auto1 from './Auto1';
 import Heading from './components/heading.js';
 import QuickDesc from './components/quick-desc.js';
 import Sep from './components/separator.js';
+import HomeDropdown from './components/home-dropdown';
 import './css/index.css';
 
 
@@ -84,7 +85,7 @@ class Article extends React.Component {
             }
         }
         return (
-            <div>
+            <div className="resp-spacing">
                 <h6>{this.title}</h6>
                 <div className="article">{link}</div>
             </div>
@@ -134,22 +135,35 @@ class LeftContainer extends React.Component {
         this.state = {
             title: 'Matteo Borghi',
             desc: 'Perseverance is my talent and long life learning is main life driver. Currently based in Lissone (MB). Tech, Self Improvment, Fantasy Book are among my interest',
+            isDesktop: false
         }
+        this.updatePredicate = this.updatePredicate.bind(this);
     }
 
     render() {
+        const isDesktop = this.state.isDesktop;
+
         return (
             <div className="left-container">
                 <Heading value={this.state.title}/>
                 <Sep />
                 <QuickDesc value={this.state.desc}/>
                 <Link/>
-                <Article />
-                <Work 
-                    dataLink={this.props.dataLink}
-                    workHandleClick={this.props.workHandleClick}/>
+                {isDesktop ?
+                    <div>
+                        (<Article />
+                        <Work 
+                            dataLink={this.props.dataLink}
+                            workHandleClick={this.props.workHandleClick}/>)
+                    </div> :
+                    (<HomeDropdown/>)
+                }
             </div>
         )
+    }
+
+    updatePredicate(){
+        this.setState({isDesktop: window.innerWidth > 1024 })
     }
 }
 
