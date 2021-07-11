@@ -151,15 +151,24 @@ class LeftContainer extends React.Component {
                 <Link/>
                 {isDesktop ?
                     <div>
-                        (<Article />
+                        <Article />
                         <Work 
                             dataLink={this.props.dataLink}
-                            workHandleClick={this.props.workHandleClick}/>)
+                            workHandleClick={this.props.workHandleClick}/>
                     </div> :
-                    (<HomeDropdown/>)
+                    <HomeDropdown/>
                 }
             </div>
         )
+    }
+
+    componentDidMount(){
+        this.updatePredicate();
+        window.addEventListener("resize", this.updatePredicate);
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.updatePredicate);
     }
 
     updatePredicate(){
