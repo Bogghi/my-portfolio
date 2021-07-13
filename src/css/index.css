@@ -163,4 +163,8 @@ img {
     .home-dropdown-active{
         background-color: #ccc5b3;
     }
+
+    .touch {
+        background-color: #f8f2e3;
+    }
 }
