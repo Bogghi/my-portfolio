@@ -11,8 +11,6 @@ import Sep from './components/separator.js';
 import HomeDropdown from './components/home-dropdown';
 import './css/index.css';
 
-
-
 class Work extends React.Component {
     constructor(props){
         super(props);
@@ -127,7 +125,6 @@ class Link extends React.Component {
         )
     }
 }
-
 
 class LeftContainer extends React.Component {
     constructor(props){

@@ -9,18 +9,19 @@ class HomeDropdown extends React.Component {
         return(
             <div className="home-dropdown" 
                 id='d-down'
-                onTouchStart={this.changeColor}>
+                onTouchStart={this.changeColor}
+                onTouchEnd={this.resetColor}>
                 <i className="fas fa-bars"></i>
             </div>
         )
     }
 
     changeColor(){
-        document.getElementById('d-down').classList.add('touch');
+        document.querySelector('#d-down i').classList.add('home-dropdown-active');
     }
 
     resetColor(){
-        document.getElementById('d-down').classList.remove('touch');
+        document.querySelector('#d-down i').classList.remove('home-dropdown-active');
     }
 }
 
