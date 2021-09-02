@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import Resume from './Resume';
 import Quantyca from './Quantyca';
 import Auto1 from './Auto1';
-import Work from './Work.js';
+import Work from './Work';
+import Article from './Article';
 
 //componenets
 import Heading from './components/heading.js';
@@ -11,48 +12,6 @@ import QuickDesc from './components/quick-desc.js';
 import Sep from './components/separator.js';
 import HomeDropdown from './components/home-dropdown';
 import './css/index.css';
-
-
-
-class Article extends React.Component {
-    constructor(props){
-        super(props);
-        //type is ither _blank (external link) or _self (local link)
-        this.state = {
-            'Digitalize your life': {
-                type: '_blank',
-                link: 'https://medium.com/@BogghiIsThere/digitalize-your-life-trust-me-its-worth-it-f3386a7521dd'
-            }
-        };
-        this.title = 'Article';
-    }
-
-    render() {
-        const a = this.state;
-        const link = [];
-
-        for (const k in a) {
-            if (Object.hasOwnProperty.call(a, k)) {
-                const e = a[k];
-                link.push(
-                    <a
-                        key={k+'_a'}
-                        target={e['type']}
-                        rel="noopener noreferrer"
-                        href={e['link']}>
-                        {k}
-                    </a>
-                )
-            }
-        }
-        return (
-            <div className="resp-spacing">
-                <h6>{this.title}</h6>
-                <div className="article">{link}</div>
-            </div>
-        )
-    }
-}
 
 class Link extends React.Component {
     constructor(props){
@@ -227,9 +186,9 @@ class Main extends React.Component {
     } 
 }
 
-//==========================================
-
 ReactDOM.render(
-<Main />,
-document.getElementById('root')
+    <Main />,
+    document.getElementById('root')
 );
+
+//==========================================

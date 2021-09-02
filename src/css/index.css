@@ -57,7 +57,7 @@ h1 {
 }
 
 .desc {
-    padding: 40px 0px;
+    padding: 40px 0;
     line-height: 25px;
 }
 
@@ -80,7 +80,7 @@ a {
 }
 
 span {
-    padding: 0px 10px 0px 10px;
+    padding: 0 10px 0 10px;
 }
 
 h6 {
@@ -151,6 +151,10 @@ img {
         margin-bottom: 6px;
     }
 
+    .dd-container {
+        width: 100%;
+    }
+
     .home-dropdown {
         margin-bottom: 10px;
     }
@@ -162,5 +166,15 @@ img {
 
     .home-dropdown-active{
         background-color: #ccc5b3;
+    }
+
+    .dd-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid black;
     }
 }

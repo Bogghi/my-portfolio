@@ -1,13 +1,6 @@
 import React from 'react';
-
-class Social extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-}
+import Article from '../Article';
+import Work from '../Work';
 
 class HomeDropdown extends React.Component {
     constructor(props){
@@ -15,33 +8,38 @@ class HomeDropdown extends React.Component {
         this.state = {
             ddStatus: false
         }
+        this.changeColor = this.changeColor.bind(this);
     }
 
     render(){
         const isOpen = this.state.ddStatus;
+        console.log(this.state);
 
         return(
-            <div>
+            <div className="dd-container">
                 <div className="home-dropdown"
                      id='d-down'
                      onTouchStart={this.changeColor}
                      onTouchEnd={this.resetColor}>
                     <i className="fas fa-bars"/>
                 </div>
-                <div className="dd-body">
-                    {isOpen ?
-                        <div>hello</div>:
-                        <div>nope</div>
-                    }
-                </div>
+                {isOpen ?
+                    <div className="dd-body">
+                        <Article/>
+                        <Work/>
+                    </div>:
+                    ''
+                }
             </div>
         )
     }
 
     changeColor(){
+        //questo this funziona perche' nel costruttore abbiamo fatto il binding di this al metodo
+        const dd = this.state.ddStatus;
+        this.setState({ddStatus: !dd});
+
         document.querySelector('#d-down i').classList.add('home-dropdown-active');
-        let curDDStatus = this.state;
-        // this.setState({ddStatus: curDDStatus});
     }
 
     resetColor(){
