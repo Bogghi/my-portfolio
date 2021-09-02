@@ -75,7 +75,9 @@ class LeftContainer extends React.Component {
                             dataLink={this.props.dataLink}
                             workHandleClick={this.props.workHandleClick}/>
                     </div> :
-                    <HomeDropdown/>
+                    <HomeDropdown
+                        dataLink={this.props.dataLink}
+                        workHandleClick={this.props.workHandleClick}/>
                 }
             </div>
         )

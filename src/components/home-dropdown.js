@@ -26,7 +26,9 @@ class HomeDropdown extends React.Component {
                 {isOpen ?
                     <div className="dd-body">
                         <Article/>
-                        <Work/>
+                        <Work
+                            dataLink={this.props.dataLink}
+                            workHandleClick={this.props.workHandleClick}/>
                     </div>:
                     ''
                 }
